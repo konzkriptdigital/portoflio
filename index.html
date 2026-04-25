@@ -14,17 +14,17 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --bg:            #080c14;
-            --bg-card:       #0d1221;
-            --bg-elevated:   #121828;
-            --accent:        #22d3ee;
-            --accent-dim:    rgba(34,211,238,0.10);
-            --accent-border: rgba(34,211,238,0.22);
-            --text-primary:  #e2e8f2;
-            --text-secondary:#8899b0;
-            --text-muted:    #4a5e78;
-            --border:        #1a2640;
-            --border-light:  #243250;
+            --bg:            #0d1117;
+            --bg-card:       #161b22;
+            --bg-elevated:   #21262d;
+            --accent:        #58a6ff;
+            --accent-dim:    rgba(88,166,255,0.10);
+            --accent-border: rgba(88,166,255,0.25);
+            --text-primary:  #e6edf3;
+            --text-secondary:#8b949e;
+            --text-muted:    #484f58;
+            --border:        #30363d;
+            --border-light:  #21262d;
             --font-display:  'Poppins', sans-serif;
             --font-body:     'Poppins', sans-serif;
             --font-mono:     'IBM Plex Mono', monospace;
@@ -50,8 +50,8 @@
             position: fixed;
             inset: 0;
             background-image:
-                linear-gradient(rgba(34,211,238,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(34,211,238,0.025) 1px, transparent 1px);
+                linear-gradient(rgba(88,166,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(88,166,255,0.03) 1px, transparent 1px);
             background-size: 64px 64px;
             pointer-events: none;
             z-index: 0;
@@ -66,7 +66,7 @@
             transform: translateX(-50%);
             width: 900px;
             height: 600px;
-            background: radial-gradient(ellipse, rgba(34,211,238,0.055) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(88,166,255,0.05) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -285,9 +285,9 @@
             clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
         }
         .btn-primary:hover {
-            background: #38e8ff;
+            background: #79b8ff;
             transform: translateY(-2px);
-            box-shadow: 0 10px 36px rgba(34,211,238,0.28);
+            box-shadow: 0 10px 36px rgba(88,166,255,0.28);
         }
 
         .btn-secondary {
