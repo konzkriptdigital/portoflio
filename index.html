@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vincent Brenold C. Giron — Full Stack Developer & GHL Specialist</title>
-    <meta name="description" content="Senior Full Stack Developer & GoHighLevel Specialist based in Davao City, Philippines.">
+    <meta name="description" content="Senior Full Stack Developer & GoHighLevel Specialist based in Tagum City, Philippines.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
             --accent-border: rgba(88,166,255,0.25);
             --text-primary:  #e6edf3;
             --text-secondary:#8b949e;
-            --text-muted:    #484f58;
+            --text-muted:    #8b949e;
             --border:        #30363d;
             --border-light:  #21262d;
             --font-display:  'Poppins', sans-serif;
@@ -211,7 +211,31 @@
             overflow: hidden;
         }
 
-        .hero-content { padding: 80px 0; position: relative; z-index: 1; }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            width: 100%;
+            padding: 60px 0;
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero-photo-col {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-photo-col img {
+            max-height: 850px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 8px 40px rgba(88,166,255,0.12));
+        }
 
         .hero-eyebrow {
             font-family: var(--font-mono);
@@ -220,8 +244,6 @@
             color: var(--accent);
             text-transform: uppercase;
             margin-bottom: 28px;
-            opacity: 0;
-            animation: fadeUp 0.8s 0.2s forwards;
         }
 
         .hero-name {
@@ -232,8 +254,6 @@
             letter-spacing: -0.02em;
             color: var(--text-primary);
             margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeUp 0.8s 0.4s forwards;
         }
 
         .hero-name .accent-word { color: var(--accent); }
@@ -244,8 +264,6 @@
             font-weight: 500;
             color: var(--text-secondary);
             margin-bottom: 32px;
-            opacity: 0;
-            animation: fadeUp 0.8s 0.6s forwards;
         }
 
         .hero-tagline {
@@ -254,16 +272,12 @@
             max-width: 580px;
             line-height: 1.75;
             margin-bottom: 52px;
-            opacity: 0;
-            animation: fadeUp 0.8s 0.8s forwards;
         }
 
         .hero-cta {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeUp 0.8s 1s forwards;
         }
 
         /* Clipped corner buttons */
@@ -316,14 +330,12 @@
         /* Decorative concentric rings */
         .hero-rings {
             position: absolute;
-            right: -100px;
+            right: calc(50% - 480px);
             top: 50%;
             transform: translateY(-50%);
-            width: 560px;
-            height: 560px;
+            width: 480px;
+            height: 480px;
             pointer-events: none;
-            opacity: 0;
-            animation: fadeIn 1.8s 1.2s forwards;
         }
         .hero-rings .ring {
             position: absolute;
@@ -336,8 +348,9 @@
         .hero-rings .ring:nth-child(4) {
             inset: 168px;
             border-color: var(--accent);
-            opacity: 0.4;
+            opacity: 0.3;
         }
+
 
         /* Scroll indicator */
         .scroll-hint {
@@ -349,8 +362,6 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
-            opacity: 0;
-            animation: fadeIn 1s 1.6s forwards;
         }
         .scroll-hint span {
             font-family: var(--font-mono);
@@ -597,6 +608,264 @@
             opacity: 0.7;
         }
 
+        /* ─── Featured Work ─────────────────────────────────────────── */
+        #featured {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .featured-card {
+            border: 1px solid var(--border);
+            background: var(--bg-elevated);
+            overflow: hidden;
+        }
+
+        .featured-meta {
+            padding: 36px 40px 28px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .featured-info { flex: 1; min-width: 260px; }
+
+        .featured-role {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .featured-name {
+            font-family: var(--font-display);
+            font-size: clamp(24px, 3.5vw, 36px);
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .featured-desc {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            max-width: 540px;
+            margin-bottom: 20px;
+        }
+
+        .featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .featured-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 4px 10px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .featured-cta {
+            display: flex;
+            align-items: flex-start;
+            padding-top: 4px;
+        }
+
+        /* Browser chrome frame */
+        .carousel-wrap {
+            padding: 24px;
+            background: var(--bg);
+        }
+
+        .browser-frame {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .browser-bar {
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .browser-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .browser-dots span:nth-child(1) { background: #ff5f57; }
+        .browser-dots span:nth-child(2) { background: #febc2e; }
+        .browser-dots span:nth-child(3) { background: #28c840; }
+
+        .browser-url {
+            flex: 1;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 4px 12px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            background: var(--bg);
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            height: 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top left;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(13,17,23,0.80);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .carousel-btn:hover { background: var(--bg-elevated); border-color: var(--accent); }
+        .carousel-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .carousel-btn-prev { left: 12px; }
+        .carousel-btn-next { right: 12px; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 0 6px;
+            background: var(--bg);
+        }
+
+        .carousel-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--border);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .carousel-dot.active {
+            background: var(--accent);
+            transform: scale(1.4);
+        }
+
+        /* ─── Projects ──────────────────────────────────────────────── */
+        #projects { position: relative; }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 32px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .project-card:hover {
+            border-color: var(--accent-border);
+            transform: translateY(-4px);
+        }
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .project-card:hover::before { opacity: 1; }
+
+        .project-number {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .project-name {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+
+        .project-tech {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
         /* ─── Education ──────────────────────────────────────────────── */
         #education { padding: var(--section-py) 0; }
 
@@ -633,6 +902,21 @@
 
         .edu-school { font-size: 16px; color: var(--text-secondary); }
         .edu-school strong { color: var(--accent); }
+
+        .edu-honor {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            padding: 4px 12px;
+            border: 1px solid var(--accent-border);
+            background: var(--accent-dim);
+        }
 
         .edu-period {
             font-family: var(--font-mono);
@@ -783,11 +1067,13 @@
             .nav-links.open { display: flex; }
             .nav-toggle { display: flex; }
 
+            .hero-grid { grid-template-columns: 1fr; padding: 40px 0 0; }
+            .hero-photo-col { display: none; }
+            .hero-rings { display: none; }
             .about-grid    { grid-template-columns: 1fr; gap: 48px; }
             .contact-grid  { grid-template-columns: 1fr; gap: 52px; }
             .timeline-header { flex-direction: column; gap: 10px; }
             .edu-card { padding: 28px 24px; }
-            .hero-rings { display: none; }
         }
 
         @media (max-width: 480px) {
@@ -805,6 +1091,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#featured">Featured</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -817,17 +1105,22 @@
     <!-- ── Hero ── -->
     <section id="hero">
         <div class="container">
-            <div class="hero-content">
-                <p class="hero-eyebrow">Based in Davao City, Philippines</p>
-                <h1 class="hero-name">
-                    Vincent Brenold<br>
-                    <span class="accent-word">C. Giron</span>
-                </h1>
-                <p class="hero-title">Senior Full Stack Developer &amp; GoHighLevel Specialist</p>
-                <p class="hero-tagline">Engineering custom CRM solutions, automated workflows, and robust web systems that drive business efficiency.</p>
-                <div class="hero-cta">
-                    <a href="#experience" class="btn-primary">View My Work</a>
-                    <a href="#contact" class="btn-secondary">Contact Me</a>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <p class="hero-eyebrow">Based in Tagum City, Philippines</p>
+                    <h1 class="hero-name">
+                        <span class="accent-word">Vincent Brenold</span><br>
+                        C. Giron
+                    </h1>
+                    <p class="hero-title">Senior Full Stack Developer &amp; GoHighLevel Specialist</p>
+                    <p class="hero-tagline">Engineering custom CRM solutions, automated workflows, and robust web systems that drive business efficiency.</p>
+                    <div class="hero-cta">
+                        <a href="#experience" class="btn-primary">View My Work</a>
+                        <a href="#contact" class="btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-photo-col">
+                    <img src="images/vincent-profile.png" alt="Vincent Brenold Giron">
                 </div>
             </div>
         </div>
@@ -885,44 +1178,60 @@
             <h2 class="section-title reveal">Tools of the trade.</h2>
             <div class="skills-grid">
                 <div class="skill-group reveal">
-                    <p class="skill-group-label">Core Web</p>
+                    <p class="skill-group-label">Programming Languages</p>
                     <div class="skill-tags">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">jQuery</span>
                         <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">Laravel</span>
-                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">JS ES6</span>
+                        <span class="skill-tag">SQL</span>
                     </div>
                 </div>
                 <div class="skill-group reveal reveal-d1">
                     <p class="skill-group-label">Frameworks</p>
                     <div class="skill-tags">
+                        <span class="skill-tag">Laravel</span>
+                        <span class="skill-tag">AlpineJS</span>
+                        <span class="skill-tag">Tailwind</span>
+                        <span class="skill-tag">Bootstrap</span>
                         <span class="skill-tag">WordPress</span>
                         <span class="skill-tag">Elementor</span>
-                        <span class="skill-tag">Brizy</span>
                         <span class="skill-tag">Divi</span>
+                        <span class="skill-tag">Brizy</span>
                     </div>
                 </div>
                 <div class="skill-group reveal reveal-d2">
-                    <p class="skill-group-label">GHL Expertise</p>
+                    <p class="skill-group-label">CRM &amp; SaaS Platforms</p>
                     <div class="skill-tags">
-                        <span class="skill-tag">GHL Architecture</span>
-                        <span class="skill-tag">Custom Dashboards</span>
-                        <span class="skill-tag">Widget Development</span>
-                        <span class="skill-tag">Funnels &amp; Websites</span>
+                        <span class="skill-tag">GoHighLevel (Advanced)</span>
                         <span class="skill-tag">CRM Customization</span>
+                        <span class="skill-tag">Funnels &amp; Workflows</span>
+                        <span class="skill-tag">Custom Dashboards</span>
+                        <span class="skill-tag">Multi-Tenant Setup</span>
                     </div>
                 </div>
                 <div class="skill-group reveal reveal-d3">
-                    <p class="skill-group-label">Automation &amp; AI</p>
+                    <p class="skill-group-label">Backend &amp; APIs</p>
                     <div class="skill-tags">
-                        <span class="skill-tag">API Integrations</span>
+                        <span class="skill-tag">REST API Integration</span>
+                        <span class="skill-tag">Webhooks</span>
+                        <span class="skill-tag">Google Sheets API</span>
+                        <span class="skill-tag">CRM Automation Logic</span>
                         <span class="skill-tag">Zapier</span>
                         <span class="skill-tag">Make (Integromat)</span>
-                        <span class="skill-tag">Trigger Automations</span>
-                        <span class="skill-tag">AI Coding</span>
+                    </div>
+                </div>
+                <div class="skill-group reveal reveal-d4">
+                    <p class="skill-group-label">Tools</p>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Laravel Herd</span>
+                        <span class="skill-tag">Claude Code</span>
+                        <span class="skill-tag">AI Coding Assistants</span>
+                        <span class="skill-tag">Trello</span>
+                        <span class="skill-tag">Asana</span>
+                        <span class="skill-tag">Monday</span>
+                        <span class="skill-tag">Slack</span>
+                        <span class="skill-tag">DigitalOcean</span>
+                        <span class="skill-tag">Laravel Forge</span>
                     </div>
                 </div>
             </div>
@@ -940,66 +1249,72 @@
                 <div class="timeline-item reveal">
                     <div class="timeline-header">
                         <div class="timeline-title">
-                            Co-owner &amp; Lead GHL Developer<br>
-                            <span class="timeline-company">Primekit</span>
+                            Co-Founder &amp; Full Stack Developer<br>
+                            <span class="timeline-company">Primekit &mdash; Tel Aviv, Israel (Remote)</span>
                         </div>
-                        <span class="timeline-period">2025 — Present</span>
+                        <span class="timeline-period">Aug 2025 — Present</span>
                     </div>
                     <ul class="timeline-list">
-                        <li>Co-direct technical operations and product development for a tech solutions agency specializing in GoHighLevel customizations.</li>
-                        <li>Spearhead the customization of GHL dashboards to enhance UI/UX and optimize workflow efficiency for clients.</li>
-                        <li>Develop and deploy custom widgets, including appointment and opportunity widgets integrated directly into conversation and contact detail pages.</li>
-                        <li>Accelerate development cycles and optimize code quality using AI coding assistants and the Laravel framework for scalable backend integrations.</li>
+                        <li>Co-founded a SaaS product built on GoHighLevel by evolving an internal CRM customization system into a structured platform for agency use.</li>
+                        <li>Led technical direction on system architecture, including CRM customization layers, workflow logic, multi-tenant setup, and dashboard structure.</li>
+                        <li>Handled infrastructure and deployment responsibilities (DigitalOcean, Laravel Forge), while continuously refining features based on user behavior and feedback.</li>
+                        <li>Integrated external APIs to extend CRM functionality and support automation across client workflows.</li>
+                        <li>Used AI-assisted development tools to speed up implementation and debugging during feature development.</li>
                     </ul>
                 </div>
 
                 <div class="timeline-item reveal">
                     <div class="timeline-header">
                         <div class="timeline-title">
-                            Senior GHL / Fullstack Web Developer<br>
-                            <span class="timeline-company">Acquirely</span>
+                            Lead Developer &amp; Full Stack Developer<br>
+                            <span class="timeline-company">Acquirely LLC &mdash; Irvine, CA (Remote)</span>
                         </div>
-                        <span class="timeline-period">2021 — 2025</span>
+                        <span class="timeline-period">Jun 2021 — May 2025</span>
                     </div>
                     <ul class="timeline-list">
-                        <li>Engineered a dedicated Web App for advanced GHL dashboard customizations, transforming the overall look, feel, and functionality of the CRM.</li>
-                        <li>Developed and integrated custom Appointment and Contact widgets directly into the dashboard to meet specific client operational needs.</li>
-                        <li>Led robust API integrations to connect GoHighLevel with diverse third-party applications.</li>
+                        <li>Built the core GoHighLevel-based CRM system that powered automation, funnels, workflows, and integrations for multiple agency clients.</li>
+                        <li>Delivered full-cycle development work including landing pages, funnels, surveys, CRM customization, and backend automation logic.</li>
+                        <li>Implemented GoHighLevel API integrations to support marketplace-based installation and seamless CRM deployment for users.</li>
+                        <li>Worked directly with clients to translate business requirements into functional systems and automation workflows.</li>
+                        <li>Contributed to platform growth reaching approximately $30,000+ monthly recurring revenue, which later became the foundation of Primekit.</li>
                     </ul>
                 </div>
 
                 <div class="timeline-item reveal">
                     <div class="timeline-header">
                         <div class="timeline-title">
-                            GHL Specialist &amp; Web Developer<br>
-                            <span class="timeline-company">Independent Freelancer</span>
-                        </div>
-                        <span class="timeline-period">2019 — Present</span>
-                    </div>
-                    <ul class="timeline-list">
-                        <li>Engineered custom GHL architectures, advanced automations, and versatile frontend solutions for diverse clients, bridging disparate software ecosystems.</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item reveal">
-                    <div class="timeline-header">
-                        <div class="timeline-title">
-                            Fullstack Web Developer<br>
-                            <span class="timeline-company">Energysmart Inc.</span>
+                            Web Developer (WordPress / CRM Setup)<br>
+                            <span class="timeline-company">Energy Smart Media LLC &mdash; Melbourne, Australia (Remote)</span>
                         </div>
                         <span class="timeline-period">Jun 2020 — Jun 2021</span>
                     </div>
                     <ul class="timeline-list">
-                        <li>Architected GoHighLevel CRM solutions, including funnels, websites, forms, and surveys to track customer data and improve service.</li>
-                        <li>Built complex automations (triggers, campaigns, workflows) using Zapier and Make (Integromat).</li>
-                        <li>Delivered 3rd-party API integrations (Google Sheets, Web Apps) and developed WordPress sites.</li>
+                        <li>Built landing pages, funnels, and surveys for marketing campaigns and lead capture systems.</li>
+                        <li>Developed WordPress websites and landing pages using Elementor, Divi, and Brizy, aligned with client branding and marketing needs.</li>
+                        <li>Implemented CRM setups and automation workflows using GoHighLevel, Zapier, Make, and Google Sheets API to improve lead tracking and reduce manual processes.</li>
                     </ul>
                 </div>
 
                 <div class="timeline-item reveal">
                     <div class="timeline-header">
                         <div class="timeline-title">
-                            Fullstack Web Developer<br>
+                            Web Developer (WordPress / PHP / CRM Setup)<br>
+                            <span class="timeline-company">Early Web Development Experience &mdash; Melbourne, AUS (Remote)</span>
+                        </div>
+                        <span class="timeline-period">Jan 2019 — Jun 2020</span>
+                    </div>
+                    <ul class="timeline-list">
+                        <li>Built WordPress websites and landing pages for small business clients focused on branding and lead generation.</li>
+                        <li>Developed basic PHP web applications including simple backend logic and form-based systems.</li>
+                        <li>Configured GoHighLevel CRM accounts with pipelines, funnels, and early-stage automation setups.</li>
+                        <li>Provided website maintenance, troubleshooting, and client technical support.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-header">
+                        <div class="timeline-title">
+                            Full Stack Web Developer<br>
                             <span class="timeline-company">Tagum Doctors Hospital</span>
                         </div>
                         <span class="timeline-period">Jan 2017 — Aug 2018</span>
@@ -1014,6 +1329,94 @@
         </div>
     </section>
 
+    <!-- ── Featured Work ── -->
+    <section id="featured">
+        <div class="container">
+            <p class="section-label reveal">Featured Work</p>
+            <h2 class="section-title reveal">A product I helped build.</h2>
+            <div class="featured-card reveal">
+                <div class="featured-meta">
+                    <div class="featured-info">
+                        <p class="featured-role">Co-Founder &amp; Full Stack Developer</p>
+                        <h3 class="featured-name">Primekit</h3>
+                        <p class="featured-desc">A SaaS platform built on GoHighLevel that gives agencies 30+ pre-built themes, custom dashboards, branded login pages, drag-and-drop navigation, and an expanding library of widgets — all installable directly from the GHL Marketplace in under 60 seconds.</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">GoHighLevel</span>
+                            <span class="featured-tag">Laravel</span>
+                            <span class="featured-tag">AlpineJS</span>
+                            <span class="featured-tag">Tailwind</span>
+                            <span class="featured-tag">DigitalOcean</span>
+                            <span class="featured-tag">Laravel Forge</span>
+                            <span class="featured-tag">REST API</span>
+                        </div>
+                    </div>
+                    <div class="featured-cta">
+                        <a href="https://primekit.io/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Visit Site
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-wrap">
+                    <div class="browser-frame">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="browser-url">primekit.io</div>
+                        </div>
+                        <div class="carousel" id="pkCarousel">
+                            <div class="carousel-track" id="pkTrack">
+                                <div class="carousel-slide"><img src="images/primekit/1.png" alt="Primekit dashboard overview" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/2.png" alt="Primekit contact smart lists" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/3.png" alt="Primekit contact detail view" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/4.png" alt="Primekit multi-location overview" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/5.png" alt="Primekit AI location analysis" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/6.png" alt="Primekit pipeline analytics" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/7.png" alt="Primekit agency health score" loading="lazy"></div>
+                            </div>
+                            <button class="carousel-btn carousel-btn-prev" id="pkPrev" aria-label="Previous">
+                                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                            </button>
+                            <button class="carousel-btn carousel-btn-next" id="pkNext" aria-label="Next">
+                                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                            </button>
+                        </div>
+                        <div class="carousel-dots" id="pkDots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Projects ── -->
+    <section id="projects">
+        <div class="container">
+            <p class="section-label reveal">Projects</p>
+            <h2 class="section-title reveal">Things I've built.</h2>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <div class="project-number">01</div>
+                    <h3 class="project-name">CRM Automation &amp; Dashboard Systems</h3>
+                    <p class="project-tech">GoHighLevel</p>
+                    <p class="project-desc">Designed CRM workflows that handle lead routing, follow-ups, and reporting inside GoHighLevel. Built KPI tracking dashboards used to monitor conversions, leads, and team performance. Extended system behavior using APIs and automation tools where needed.</p>
+                </div>
+                <div class="project-card reveal reveal-d1">
+                    <div class="project-number">02</div>
+                    <h3 class="project-name">Marketing Funnels &amp; Conversion Systems</h3>
+                    <p class="project-tech">GoHighLevel · Landing Pages · Surveys</p>
+                    <p class="project-desc">Built funnel structures for lead generation campaigns including landing pages, surveys, and qualification flows. Focused on improving conversion paths and reducing friction in user capture flows.</p>
+                </div>
+                <div class="project-card reveal reveal-d2">
+                    <div class="project-number">03</div>
+                    <h3 class="project-name">Website Systems &amp; CRM Migration Work</h3>
+                    <p class="project-tech">WordPress · GoHighLevel · PHP</p>
+                    <p class="project-desc">Handled WordPress builds and migrations into GoHighLevel environments while preserving design consistency and functionality. Maintained systems across both platforms depending on client needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ── Education ── -->
     <section id="education">
         <div class="container">
@@ -1022,9 +1425,10 @@
             <div class="edu-card reveal">
                 <div>
                     <div class="edu-degree">BS in Information Technology</div>
-                    <div class="edu-school">University of Mindanao &mdash; <strong>Davao City, Philippines</strong></div>
+                    <div class="edu-school">University of Mindanao (Matina) &mdash; <strong>Davao City, Philippines</strong></div>
+                    <div class="edu-honor">Best Capstone / Thesis</div>
                 </div>
-                <div class="edu-period">Jun 2012 &mdash; Apr 2017</div>
+                <div class="edu-period">Apr 2017</div>
             </div>
         </div>
     </section>
@@ -1069,7 +1473,7 @@
                         </div>
                         <div>
                             <div class="contact-label">Location</div>
-                            <div class="contact-value">Davao City, Philippines</div>
+                            <div class="contact-value">Tagum City, Philippines</div>
                         </div>
                     </div>
                 </div>
@@ -1115,6 +1519,48 @@
         }, { threshold: 0.08 });
 
         document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ── Primekit Carousel ─────────────────────────────────────────
+        (function () {
+            const track  = document.getElementById('pkTrack');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dotsWrap = document.getElementById('pkDots');
+            const total  = slides.length;
+            let current  = 0;
+            let timer;
+
+            // Build dots
+            slides.forEach((_, i) => {
+                const d = document.createElement('button');
+                d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                d.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(d);
+            });
+
+            function goTo(n) {
+                current = (n + total) % total;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === current);
+                });
+            }
+
+            function next() { goTo(current + 1); }
+            function prev() { goTo(current - 1); }
+
+            document.getElementById('pkNext').addEventListener('click', () => { next(); resetTimer(); });
+            document.getElementById('pkPrev').addEventListener('click', () => { prev(); resetTimer(); });
+
+            function startTimer() { timer = setInterval(next, 4000); }
+            function resetTimer() { clearInterval(timer); startTimer(); }
+
+            const carousel = document.getElementById('pkCarousel');
+            carousel.addEventListener('mouseenter', () => clearInterval(timer));
+            carousel.addEventListener('mouseleave', startTimer);
+
+            startTimer();
+        })();
     </script>
 </body>
 </html>
