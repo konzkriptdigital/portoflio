@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vincent Brenold C. Giron — Full Stack Developer & GHL Specialist</title>
-    <meta name="description" content="Senior Full Stack Developer & GoHighLevel Specialist based in Tagum City, Philippines.">
+    <title>Vincent Brenold C. Giron — Full Stack Developer | GHL Developer & Specialist</title>
+    <meta name="description" content="Full Stack Developer | GoHighLevel Developer & Specialist based in Tagum City, Philippines.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -14,23 +14,23 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --bg:            #0d1117;
-            --bg-card:       #161b22;
-            --bg-elevated:   #21262d;
-            --accent:        #58a6ff;
-            --accent-dim:    rgba(88,166,255,0.10);
-            --accent-border: rgba(88,166,255,0.25);
-            --text-primary:  #e6edf3;
-            --text-secondary:#8b949e;
-            --text-muted:    #8b949e;
-            --border:        #30363d;
-            --border-light:  #21262d;
+            --bg:            #f6f8fa;
+            --bg-card:       #ffffff;
+            --bg-elevated:   #eaeef2;
+            --accent:        #0969da;
+            --accent-dim:    rgba(9,105,218,0.08);
+            --accent-border: rgba(9,105,218,0.22);
+            --text-primary:  #1c2128;
+            --text-secondary:#57606a;
+            --text-muted:    #6e7781;
+            --border:        #d0d7de;
+            --border-light:  #eaeef2;
             --font-display:  'Poppins', sans-serif;
             --font-body:     'Poppins', sans-serif;
             --font-mono:     'IBM Plex Mono', monospace;
             --nav-h:         64px;
             --section-py:    clamp(72px, 11vw, 128px);
-            --max-w:         1140px;
+            --max-w:         1350px;
         }
 
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -50,8 +50,8 @@
             position: fixed;
             inset: 0;
             background-image:
-                linear-gradient(rgba(88,166,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(88,166,255,0.03) 1px, transparent 1px);
+                linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
             background-size: 64px 64px;
             pointer-events: none;
             z-index: 0;
@@ -66,7 +66,7 @@
             transform: translateX(-50%);
             width: 900px;
             height: 600px;
-            background: radial-gradient(ellipse, rgba(88,166,255,0.05) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(9,105,218,0.05) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -74,7 +74,7 @@
         .container {
             max-width: var(--max-w);
             margin: 0 auto;
-            padding: 0 clamp(20px, 5vw, 48px);
+            padding: 0 clamp(20px, 5vw, 25px);
             position: relative;
             z-index: 1;
         }
@@ -124,7 +124,7 @@
         }
 
         nav.scrolled {
-            background: rgba(8,12,20,0.92);
+            background: rgba(246,248,250,0.95);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border);
@@ -214,7 +214,8 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            /* gap: 48px; */
+            gap: 0px;
             align-items: center;
             width: 100%;
             padding: 60px 0;
@@ -228,13 +229,54 @@
             align-items: center;
             position: relative;
             z-index: 2;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 0 20px 10px rgba(255, 255, 255, 1);
+            overflow: hidden;
+            padding: 32px 24px 0;
+        }
+
+        .hero-photo-col::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.8),
+                transparent
+            );
+        }
+
+        .hero-photo-col::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.8),
+                transparent,
+                rgba(255, 255, 255, 0.3)
+            );
         }
 
         .hero-photo-col img {
             max-height: 850px;
             width: auto;
             display: block;
-            filter: drop-shadow(0 8px 40px rgba(88,166,255,0.12));
         }
 
         .hero-eyebrow {
@@ -287,7 +329,7 @@
             gap: 8px;
             padding: 14px 34px;
             background: var(--accent);
-            color: #060a11;
+            color: #ffffff;
             font-family: var(--font-body);
             font-weight: 600;
             font-size: 14px;
@@ -301,7 +343,7 @@
         .btn-primary:hover {
             background: #79b8ff;
             transform: translateY(-2px);
-            box-shadow: 0 10px 36px rgba(88,166,255,0.28);
+            box-shadow: 0 10px 36px rgba(9,105,218,0.28);
         }
 
         .btn-secondary {
@@ -549,7 +591,7 @@
         .timeline-item:first-child::before {
             border-color: var(--accent);
             background: var(--accent);
-            box-shadow: 0 0 12px rgba(34,211,238,0.45);
+            box-shadow: 0 0 12px rgba(9,105,218,0.40);
         }
 
         .timeline-header {
@@ -764,7 +806,7 @@
             transform: translateY(-50%);
             width: 40px;
             height: 40px;
-            background: rgba(13,17,23,0.80);
+            background: rgba(255,255,255,0.85);
             border: 1px solid var(--border);
             color: var(--text-primary);
             cursor: pointer;
@@ -1056,7 +1098,7 @@
                 position: fixed;
                 top: var(--nav-h);
                 left: 0; right: 0;
-                background: rgba(8,12,20,0.98);
+                background: rgba(246,248,250,0.98);
                 backdrop-filter: blur(14px);
                 -webkit-backdrop-filter: blur(14px);
                 flex-direction: column;
@@ -1112,7 +1154,7 @@
                         <span class="accent-word">Vincent Brenold</span><br>
                         C. Giron
                     </h1>
-                    <p class="hero-title">Senior Full Stack Developer &amp; GoHighLevel Specialist</p>
+                    <p class="hero-title">Full Stack Developer | GHL Developer & <br>Specialist</p>
                     <p class="hero-tagline">Engineering custom CRM solutions, automated workflows, and robust web systems that drive business efficiency.</p>
                     <div class="hero-cta">
                         <a href="#experience" class="btn-primary">View My Work</a>
@@ -1120,7 +1162,7 @@
                     </div>
                 </div>
                 <div class="hero-photo-col">
-                    <img src="images/vincent-profile.png" alt="Vincent Brenold Giron">
+                    <img src="images/profile-picture.png" alt="Vincent Brenold Giron">
                 </div>
             </div>
         </div>
@@ -1370,6 +1412,11 @@
                                 <div class="carousel-slide"><img src="images/primekit/1.png" alt="Primekit dashboard overview" loading="lazy"></div>
                                 <div class="carousel-slide"><img src="images/primekit/2.png" alt="Primekit contact smart lists" loading="lazy"></div>
                                 <div class="carousel-slide"><img src="images/primekit/3.png" alt="Primekit contact detail view" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/8.png" alt="Primekit agency health score" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/9.png" alt="Primekit agency health score" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/10.png" alt="Primekit agency health score" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/11.png" alt="Primekit agency health score" loading="lazy"></div>
+                                <div class="carousel-slide"><img src="images/primekit/12.png" alt="Primekit agency health score" loading="lazy"></div>
                                 <div class="carousel-slide"><img src="images/primekit/4.png" alt="Primekit multi-location overview" loading="lazy"></div>
                                 <div class="carousel-slide"><img src="images/primekit/5.png" alt="Primekit AI location analysis" loading="lazy"></div>
                                 <div class="carousel-slide"><img src="images/primekit/6.png" alt="Primekit pipeline analytics" loading="lazy"></div>
