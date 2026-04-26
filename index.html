@@ -1077,19 +1077,6 @@
             50%       { opacity: 1; }
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-d1 { transition-delay: 0.10s; }
-        .reveal-d2 { transition-delay: 0.20s; }
-        .reveal-d3 { transition-delay: 0.30s; }
-        .reveal-d4 { transition-delay: 0.40s; }
 
         /* ─── Responsive ─────────────────────────────────────────────── */
         @media (max-width: 800px) {
@@ -1163,6 +1150,7 @@
                             View CV
                         </a>
                     </div>
+                </div>
                 <div class="hero-photo-col">
                     <img src="images/profile-picture.png" alt="Vincent Brenold Giron">
                 </div>
@@ -1562,12 +1550,6 @@
         navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
         navLinks.forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
 
-        // ── Scroll reveal ─────────────────────────────────────────────
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.08 });
-
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
         // ── Primekit Carousel ─────────────────────────────────────────
         (function () {
